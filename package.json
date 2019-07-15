@@ -1,0 +1,17 @@
+{
+  "name": "gatsby-theme-showcase",
+  "author": "Jason Lengstorf <jason@lengstorf.com>",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "peerDependencies": {
+    "gatsby": "^2.10.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "gatsby": "^2.10.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
