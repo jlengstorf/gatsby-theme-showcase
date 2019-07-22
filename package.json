@@ -1,17 +1,31 @@
 {
-  "name": "gatsby-theme-showcase",
-  "author": "Jason Lengstorf <jason@lengstorf.com>",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "@jlengstorf/gatsby-theme-showcase",
   "license": "MIT",
+  "version": "1.0.0",
+  "author": "Jason Lengstorf <jason@gatsbyjs.com>",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-theme"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "start": "gatsby develop"
+  },
   "peerDependencies": {
-    "gatsby": "^2.10.4",
+    "gatsby": "^2.13.23",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
-  "devDependencies": {
-    "gatsby": "^2.10.4",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+  "dependencies": {
+    "@emotion/core": "^10.0.14",
+    "@mdx-js/react": "^1.0.27",
+    "gatsby-plugin-theme-ui": "^0.2.6",
+    "gatsby-source-airtable": "^2.0.8",
+    "gatsby-source-filesystem": "^2.1.5",
+    "node-fetch": "^2.6.0",
+    "parse-github-repo-url": "^1.4.1",
+    "react-icons": "^3.7.0",
+    "theme-ui": "^0.2.16"
   }
 }
