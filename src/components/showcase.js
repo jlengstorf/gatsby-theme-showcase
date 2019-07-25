@@ -36,7 +36,7 @@ const Showcase = () => {
           <ShowcaseItem key={index} item={item} />
         ))}
       </div>
-      <Pagination />
+      {/* <Pagination /> */}
     </section>
   );
 };
