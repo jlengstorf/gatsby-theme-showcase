@@ -17,8 +17,6 @@ exports.onCreateNode = async ({
     res => res.json(),
   );
 
-  console.log(ghData);
-
   const data = {
     id: createNodeId(`Showcase-${node.id}`),
     name: node.data.Name,
