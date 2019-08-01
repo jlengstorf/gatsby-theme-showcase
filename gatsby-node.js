@@ -1,5 +1,9 @@
 const parse = require('parse-github-repo-url');
-const fetch = require('node-fetch');
+const gh = require('@octokit/graphql').defaults({
+  headers: {
+    authorization: `token ${process.env.GITHUB_TOKEN}`,
+  },
+});
 
 exports.onCreateNode = async ({
   node,
@@ -18,11 +22,18 @@ exports.onCreateNode = async ({
   }
 
   const [username, repo] = parsed;
-  const ghData = await fetch(`https://api.github.com/users/${username}`).then(
-    res => res.json(),
-  );
+  const result = await gh({
+    query: `
+        query ($login: String!) {
+          repositoryOwner(login: $login) {
+            avatarUrl
+          }
+        }
+      `,
+    login: username,
+  });
 
-  if (!ghData.avatar_url) {
+  if (!result || !result.repositoryOwner || !result.repositoryOwner.avatarUrl) {
     reporter.warn(`Missing avatar: ${node.data.Repo}`);
   }
 
@@ -31,7 +42,7 @@ exports.onCreateNode = async ({
     name: node.data.Name,
     themeName: repo,
     avatar:
-      ghData.avatar_url ||
+      result.repositoryOwner.avatarUrl ||
       'https://themejam.gatsbyjs.org/images/default-avatar.jpg',
     repo: node.data.Repo,
     package: node.data.Package,

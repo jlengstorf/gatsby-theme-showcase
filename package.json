@@ -20,10 +20,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "@mdx-js/react": "^1.0.27",
+    "@octokit/graphql": "^3.0.1",
     "gatsby-plugin-theme-ui": "^0.2.6",
     "gatsby-source-airtable": "^2.0.8",
     "gatsby-source-filesystem": "^2.1.5",
-    "node-fetch": "^2.6.0",
     "parse-github-repo-url": "^1.4.1",
     "react-icons": "^3.7.0",
     "theme-ui": "^0.2.16"
