@@ -3,6 +3,11 @@
   "license": "MIT",
   "version": "1.0.5",
   "author": "Jason Lengstorf <jason@gatsbyjs.com>",
+  "contributors": [
+    "Kyle Gill <kyle.robert.gill@gmail.com>",
+    "Amberley Romo <amberley@gatsbyjs.com>",
+    "Florian Kissling <flo@gatsbyjs.com>"
+  ],
   "keywords": [
     "gatsby",
     "gatsby-plugin",
@@ -27,5 +32,10 @@
     "parse-github-repo-url": "^1.4.1",
     "react-icons": "^3.7.0",
     "theme-ui": "^0.2.16"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlengstorf/gatsby-theme-showcase"
+  },
+  "homepage": "https://github.com/jlengstorf/gatsby-theme-showcase"
 }
