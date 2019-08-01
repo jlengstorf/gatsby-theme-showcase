@@ -6,16 +6,25 @@ exports.onCreateNode = async ({
   actions,
   createNodeId,
   createContentDigest,
+  reporter,
 }) => {
   if (node.internal.type !== 'Airtable' || node.queryName !== 'submissions') {
     return;
   }
 
-  const [username, repo] = parse(node.data.Repo);
+  const parsed = parse(node.data.Repo);
+  if (!parsed) {
+    reporter.panic(`Invalid repo URL: ${node.data.Repo}`);
+  }
 
+  const [username, repo] = parsed;
   const ghData = await fetch(`https://api.github.com/users/${username}`).then(
     res => res.json(),
   );
+
+  if (!ghData.avatar_url) {
+    reporter.panic(`Missing avatar: ${node.data.Repo}`);
+  }
 
   const data = {
     id: createNodeId(`Showcase-${node.id}`),
