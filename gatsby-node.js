@@ -13,7 +13,7 @@ exports.onCreateNode = async ({
   }
 
   const parsed = parse(node.data.Repo);
-  if (!parsed || !parsed.username || !parsed.repo) {
+  if (!parsed || !parsed[0] || !parsed[1]) {
     reporter.panic(`Invalid repo URL: ${node.data.Repo}`);
   }
 
