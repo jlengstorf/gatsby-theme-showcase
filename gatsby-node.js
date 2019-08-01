@@ -13,7 +13,7 @@ exports.onCreateNode = async ({
   }
 
   const parsed = parse(node.data.Repo);
-  if (!parsed) {
+  if (!parsed || !parsed.username || !parsed.repo) {
     reporter.panic(`Invalid repo URL: ${node.data.Repo}`);
   }
 
@@ -23,14 +23,16 @@ exports.onCreateNode = async ({
   );
 
   if (!ghData.avatar_url) {
-    reporter.panic(`Missing avatar: ${node.data.Repo}`);
+    reporter.warn(`Missing avatar: ${node.data.Repo}`);
   }
 
   const data = {
     id: createNodeId(`Showcase-${node.id}`),
     name: node.data.Name,
     themeName: repo,
-    avatar: ghData.avatar_url,
+    avatar:
+      ghData.avatar_url ||
+      'https://themejam.gatsbyjs.org/images/default-avatar.jpg',
     repo: node.data.Repo,
     package: node.data.Package,
     demo: node.data.Demo,
