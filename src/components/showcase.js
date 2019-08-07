@@ -2,12 +2,11 @@
 import { jsx } from 'theme-ui';
 import { graphql, useStaticQuery } from 'gatsby';
 import ShowcaseItem from './showcase-item';
-import Pagination from './pagination';
 
 const Showcase = () => {
   const data = useStaticQuery(graphql`
     query {
-      allShowcase {
+      allShowcase(sort: { fields: winner, order: DESC }) {
         nodes {
           avatar
           themeName
@@ -36,7 +35,6 @@ const Showcase = () => {
           <ShowcaseItem key={index} item={item} />
         ))}
       </div>
-      {/* <Pagination /> */}
     </section>
   );
 };

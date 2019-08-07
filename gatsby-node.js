@@ -47,7 +47,7 @@ exports.onCreateNode = async ({
     repo: node.data.Repo,
     package: node.data.Package,
     demo: node.data.Demo,
-    winner: false,
+    winner: node.data.Winner ? true : false,
   };
 
   actions.createNode({

@@ -67,7 +67,7 @@ const ShowcaseItem = ({ item }) => {
             fontWeight: `bold`,
           }}
         >
-          {`Winner`.toUpperCase()}
+          {` `.toUpperCase()}
         </div>
       )}
       <div
